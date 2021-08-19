@@ -4,6 +4,9 @@
 #include<QTabWidget>
 #include <QMainWindow>
 #include"tablemodel.h"
+#include<QStandardItemModel>
+#include"myfilter.h"
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -15,8 +18,15 @@ public:
 private:
     void createMenu();
     void setupTabs();
+    void LoadData();
+    void flush();
+
+    QMenu *editMenu;
+    QAction *flushAct;
+    QAction *exitAct;
 
     QTabWidget* thingsWidget;
     TableModel* table;
+    QSortFilterProxyModel *proxymodel;
 };
 #endif // MAINWINDOW_H
